@@ -10,7 +10,11 @@ export default function ProdutoForm({ navigation }) {
   const [nome, setNome] = useState("");
   const [quantidade, setQuantidade] = useState("");
   const salvar = () => {
-    prodAux = new Produto(parseInt(codigo), nome, parseInt(quantidade));
+    const prodAux = new Produto(
+      parseInt(codigo),
+      String(nome),
+      parseInt(quantidade)
+    );
     gestor.adicionar(prodAux).then(navigation.navigate("ListaProd"));
   };
 

@@ -4,6 +4,7 @@ import GestorDados from "../dados/GestorDados";
 import ProdutoItem from "./ProdutoItem";
 import { styles } from "./CommonStyles";
 import { useIsFocused } from "@react-navigation/native";
+import { Produto } from "../dados/Produto";
 
 export default function ProdutoLista({ navigation }) {
   const gestor = new GestorDados();
@@ -19,7 +20,7 @@ export default function ProdutoLista({ navigation }) {
     return item.codigo.toString();
   };
 
-  function excluirProduto(codigo) {
+  function excluirProduto(codigo: number) {
     gestor
       .remover(codigo)
       .then(gestor.obterTodos().then((objs) => setProdutos(objs)));
